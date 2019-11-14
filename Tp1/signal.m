@@ -79,6 +79,6 @@ fy=abs(fy);
 subplot(5,1,2),plot(f(1:n2),fy(1:n2)),title('Frequency representation')
 wave = RWT(y(1:128), 4, 'Morlet');
 subplot(5,1,3),ImageRWT(wave, 'Overall', 'spring'),title('Wavelet')
-subplot(5,1,4), plot(contour(wave)),title('Wavelet')
+subplot(5,1,4), contour(transpose(wave)),title('Wavelet')
 maxima = WTMM(wave);
 subplot(5,1,5),ImageWTMM(maxima),title('Maxima ')
