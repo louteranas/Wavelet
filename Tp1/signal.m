@@ -55,7 +55,13 @@ elseif m==7
 elseif m==8
 	load splat
 elseif m==9
-    y=abs(cos(t*10));
+    %y=abs(cos(t*10));
+    %disp(t)
+    if mod(100,t*100) == 1
+        y = 100*t;
+    else
+        y = 0;
+    end
 end
 
 m=input('Add noise ?  oui=0    non=1 :');
@@ -77,7 +83,7 @@ f=(0:n2);
 fy=abs(fy);
 %..trace............
 subplot(5,1,2),plot(f(1:n2),fy(1:n2)),title('Frequency representation')
-wave = RWT(y(1:128), 4, 'Morlet');
+wave = RWT(y(1:400), 4, 'Morlet');
 subplot(5,1,3),ImageRWT(wave, 'Overall', 'spring'),title('Wavelet')
 subplot(5,1,4), contour(transpose(wave)),title('Wavelet')
 maxima = WTMM(wave);
